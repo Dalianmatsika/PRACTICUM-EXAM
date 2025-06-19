@@ -48,13 +48,12 @@ class MainActivity : AppCompatActivity() {
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
 
-        val titleInput = EditText(this).apply { hint = "Song Title" }
+        val titleInput = EditText(this).apply { hint = "Track Title" }
         val artistInput = EditText(this).apply { hint = "Artist Name" }
-        val ratingInput = EditText(this).apply {
-            hint = "Rating (1-5)"
+        val ratingInput = EditText(this).apply { hint = "Rating (1-5)"
             inputType = android.text.InputType.TYPE_CLASS_NUMBER
         }
-        val commentInput = EditText(this).apply { hint = "Comment" }
+        val commentInput = EditText(this).apply { hint = "Feedback" }
 
         layout.addView(titleInput)
         layout.addView(artistInput)
@@ -62,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         layout.addView(commentInput)
 
         AlertDialog.Builder(this)
-            .setTitle("Add New Song")
+            .setTitle("Add Music")
             .setView(layout)
             .setPositiveButton("Add") { _, _ ->
                 val title = titleInput.text.toString()
@@ -75,12 +74,12 @@ class MainActivity : AppCompatActivity() {
                     artists.add(artist)
                     ratings.add(rating)
                     comments.add(comment)
-                    Toast.makeText(this, "Song Added Successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Added to playlist!", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "Invalid input. Please try again (Title, Artist, and Rating 1-5 required).", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Oops! Please check your input.", Toast.LENGTH_SHORT).show()
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Dismiss", null)
             .show()
     }
 }

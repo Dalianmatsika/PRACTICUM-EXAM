@@ -23,21 +23,26 @@ class DetailActivity : AppCompatActivity() {
 
         val minSize = listOf(titles.size, artists.size, ratings.size, comments.size).minOrNull() ?: 0
 
-        val songsList = (0 until minSize).map { index ->
-            "${titles[index]} by ${artists[index]} (Rating: ${ratings[index]}, Comment: ${comments[index]})"
+        val songsList = titles.mapIndexed { index, title ->
+            "$title by ${artists[index]} (Rating: ${ratings[index]}, Comment: ${comments[index]})"
         }
 
         listView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, songsList)
 
         btnCalculateAverage.setOnClickListener {
-            if (ratings.isNotEmpty()) {
-                val average = ratings.sum().toDouble() / ratings.size
-                averageRatingText.text = "Average Rating: %.2f".format(average)
-            } else {
-                averageRatingText.text = "No ratings yet."
+            val displayedText = when {
+                ratings.isNotEmpty() -> {
+                    val average = ratings.sum().toDouble() / ratings.size
+                    "we rate this: %.2f".format(average)
+                }
+                else -> {
+                    "No scores yet. Care to add the first one?"
+                }
             }
+            averageRatingText.text = displayedText
         }
 
         btnReturn.setOnClickListener { finish() }
     }
 }
+
