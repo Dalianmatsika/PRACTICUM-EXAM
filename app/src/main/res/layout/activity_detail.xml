@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/musicback"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/averageRatingtext"
+        android:layout_width="221dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="24dp"
+        android:text="Playlist information"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/songlist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/averageRating"
+        android:layout_width="229dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="548dp"
+        android:autoSizeTextType="uniform"
+        android:text="Calculate Average Rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/retunbutton"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="60dp"
+        android:autoSizeTextType="uniform"
+        android:text="Return to Main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/averageRating"
+        tools:ignore="MissingConstraints" />
+
+    <ListView
+        android:id="@+id/songlist"
+        style="@style/Widget.AppCompat.Light.ListView.DropDown"
+        android:layout_width="421dp"
+        android:layout_height="363dp"
+        android:layout_marginTop="13dp"
+        android:scrollbarStyle="outsideInset"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/averageRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/averageRatingtext"
+        app:layout_constraintVertical_bias="0.419" />
+</androidx.constraintlayout.widget.ConstraintLayout>
